@@ -6,7 +6,7 @@
 #
 # https://github.com/P3TERX/Actions-OpenWrt
 # Description: Build OpenWrt using GitHub Actions
-# Reduced 1."Upload firmware to cowtransfer"   2."Upload firmware to WeTransfer"  3."Remove old Releases"  4."delete files" on 2024.09.01 by yzw
+# Reduced 1."Upload firmware to cowtransfer"   2."Upload firmware to WeTransfer"  on 2024.09.01 by yzw
 
 name: Build OpenWrt
 
@@ -22,7 +22,7 @@ on:
 #     types: started
     
   #schedule:
-     #- cron: 00 22 * * *
+     - cron: 00 22 * * *
     
   
 env:
@@ -107,15 +107,15 @@ jobs:
         #cd openwrt/package 		
         #git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git luci-theme-argonn
    
-   # - name: luci-app-romupdate
-   #   run: |
-   #     cd openwrt/package    
-   #     git clone -b immor https://github.com/Blueplanet20120/luci-app-romupdate.git
+    - name: luci-app-romupdate
+      run: |
+        cd openwrt/package    
+        git clone -b immor https://github.com/Blueplanet20120/luci-app-romupdate.git
    
-   # - name: lenyu
-   #   run: |
-   #     cd openwrt 
-   #     bash  lenyu.sh
+    - name: lenyu
+      run: |
+        cd openwrt 
+        bash  lenyu.sh
 
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
@@ -170,10 +170,10 @@ jobs:
         name: OpenWrt_bin${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
         path: openwrt/bin
    
-   # - name: delete files
-   #   run: |
-   #     cd openwrt 
-   #     bash  rename.sh
+    - name: delete files
+      run: |
+        cd openwrt 
+        bash  rename.sh
     
 
     - name: Organize files
@@ -238,11 +238,11 @@ jobs:
         retain_days: 2
         keep_minimum_runs: 10
 
-   # - name: Remove old Releases
-   #   uses: dev-drprasad/delete-older-releases@master
-   #   if: env.UPLOAD_RELEASE == 'true' && !cancelled()
-   #   with:
-   #     keep_latest: 10
-   #     delete_tags: true
-   #   env:
-   #     GITHUB_TOKEN: ${{ secrets.REPO_TOKEN }}
+    - name: Remove old Releases
+      uses: dev-drprasad/delete-older-releases@master
+      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
+      with:
+        keep_latest: 10
+        delete_tags: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.REPO_TOKEN }}
