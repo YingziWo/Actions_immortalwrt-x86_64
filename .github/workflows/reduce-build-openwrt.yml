@@ -6,7 +6,7 @@
 #
 # https://github.com/P3TERX/Actions-OpenWrt
 # Description: Build OpenWrt using GitHub Actions
-# Reduced 1."Upload firmware to cowtransfer"   2."Upload firmware to WeTransfer"  3."Remove old Releases" on 2024.09.01 by yzw
+# Reduced 1."Upload firmware to cowtransfer"   2."Upload firmware to WeTransfer"  3."Remove old Releases"  4."delete files" on 2024.09.01 by yzw
 
 name: Build OpenWrt
 
@@ -170,10 +170,10 @@ jobs:
         name: OpenWrt_bin${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
         path: openwrt/bin
    
-    - name: delete files
-      run: |
-        cd openwrt 
-        bash  rename.sh
+   # - name: delete files
+   #   run: |
+   #     cd openwrt 
+   #     bash  rename.sh
     
 
     - name: Organize files
