@@ -100,7 +100,8 @@ EOF
 
 cat>lenyu.sh<<-\EOOF
 #!/bin/bash
-lenyu_version="`date '+%y%m%d%H%M'`_sta_Len yu" 
+lenyu_version="`date '+%y%m%d%H%M'`_sta_Len yu"
+# lenyu_version="`date '+%y%m%d%H%M'`_Actions_Cloud Build"
 echo $lenyu_version >  wget/DISTRIB_REVISION1 
 echo $lenyu_version | cut -d _ -f 1 >  files/etc/lenyu_version  
 new_DISTRIB_REVISION=`cat  wget/DISTRIB_REVISION1`
