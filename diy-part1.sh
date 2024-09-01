@@ -8,7 +8,7 @@
 # https://github.com/P3TERX/Actions-OpenWrt
 # File name: diy-part1.sh
 # Description: OpenWrt DIY script part 1 (Before Update feeds)
-#
+# Add 1."luci-app-store"   2."adguardhome"  on 2024.09.01 by yzw
 
 # Uncomment a feed source
 # Add a feed helloword
