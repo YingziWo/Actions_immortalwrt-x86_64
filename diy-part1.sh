@@ -16,15 +16,15 @@ sed -i "/helloworld/d" "feeds.conf.default"
 echo "src-git helloworld https://github.com/fw876/helloworld.git" >> "feeds.conf.default"
 
 #luci-app-store
-git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-store
-git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-lib-taskd
-git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-lib-xterm
-git_sparse_clone master https://github.com/kiddin9/openwrt-packages taskd
+#git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-store
+#git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-lib-taskd
+#git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-lib-xterm
+#git_sparse_clone master https://github.com/kiddin9/openwrt-packages taskd
 #更换插件名称
-sed -i 's/("iStore"),/("软件仓库"),/g' package/linpc/luci-app-store/luasrc/controller/store.lua
+#sed -i 's/("iStore"),/("软件仓库"),/g' package/linpc/luci-app-store/luasrc/controller/store.lua
 
 #adguardhome
-git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-adguardhome
+#git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-adguardhome
 #git_sparse_clone master https://github.com/kiddin9/openwrt-packages adguardhome
 
 
